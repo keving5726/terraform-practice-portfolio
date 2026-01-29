@@ -8,6 +8,22 @@ data "aws_ami" "ubuntu" {
   }
 }
 
+data "aws_vpc" "default" {
+  default = true
+}
+
+data "aws_subnets" "default" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
+data "aws_subnet" "default" {
+  for_each = toset(data.aws_subnets.default.ids)
+  id       = each.value
+}
+
 resource "aws_security_group" "web_server_ec2_sg" {
   name        = var.sg_name
   description = "Security group to allow traffic to the web server on port ${var.server_port}"
