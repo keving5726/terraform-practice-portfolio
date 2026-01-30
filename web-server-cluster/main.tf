@@ -26,7 +26,7 @@ data "aws_subnet" "default" {
 
 resource "aws_security_group" "web_server_sg" {
   name        = var.sg_name
-  description = "Security group to allow traffic to the web server on port ${var.server_port}"
+  description = "Security group to allow traffic to the web server on port ${var.web_server_port}"
 
   tags = {
     Name = "Web Server SG"
@@ -37,9 +37,9 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ipv4" {
   security_group_id = aws_security_group.web_server_sg.id
 
   cidr_ipv4   = var.sg_cidr_ipv4
-  from_port   = var.server_port
+  from_port   = var.web_server_port
   ip_protocol = var.sg_ip_protocol
-  to_port     = var.server_port
+  to_port     = var.web_server_port
 }
 
 resource "aws_launch_template" "ubuntu" {
@@ -55,7 +55,7 @@ resource "aws_launch_template" "ubuntu" {
   user_data = base64encode(<<-EOF
               #!/bin/bash
               echo "Congratulations, the web server is working successfully" > index.html
-              nohup busybox httpd -f -p ${var.server_port} &
+              nohup busybox httpd -f -p ${var.web_server_port} &
               EOF
   )
 }
