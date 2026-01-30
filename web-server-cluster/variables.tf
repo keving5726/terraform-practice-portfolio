@@ -10,8 +10,8 @@ variable "instance_type" {
   default     = "t2.nano"
 }
 
-variable "server_port" {
-  description = "The port the server will use for HTTP requests"
+variable "web_server_port" {
+  description = "The port the web server will use for HTTP requests"
   type        = number
   default     = 8080
 }
