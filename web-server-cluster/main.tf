@@ -24,17 +24,17 @@ data "aws_subnet" "default" {
   id       = each.value
 }
 
-resource "aws_security_group" "web_server_ec2_sg" {
+resource "aws_security_group" "web_server_sg" {
   name        = var.sg_name
   description = "Security group to allow traffic to the web server on port ${var.server_port}"
 
   tags = {
-    Name = "Web Server EC2 SG"
+    Name = "Web Server SG"
   }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ipv4" {
-  security_group_id = aws_security_group.web_server_ec2_sg.id
+  security_group_id = aws_security_group.web_server_sg.id
 
   cidr_ipv4   = var.sg_cidr_ipv4
   from_port   = var.server_port
@@ -47,7 +47,7 @@ resource "aws_launch_template" "ubuntu" {
   image_id               = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   description            = "Ubuntu template used for the web server cluster"
-  vpc_security_group_ids = [aws_security_group.web_server_ec2_sg.id]
+  vpc_security_group_ids = [aws_security_group.web_server_sg.id]
   monitoring {
     enabled = false
   }
