@@ -24,6 +24,15 @@ data "aws_subnet" "default" {
   id       = each.value
 }
 
+locals {
+  allowed_azs = ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+  selected_subnet_ids = [
+    for s in data.aws_subnet.default :
+    s.id if contains(local.allowed_azs, s.availability_zone)
+  ]
+}
+
 resource "aws_security_group" "web_server_sg" {
   name        = var.sg_name
   description = "Security group to allow traffic to the web server on port ${var.web_server_port}"
