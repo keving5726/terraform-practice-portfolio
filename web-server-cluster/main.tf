@@ -34,7 +34,7 @@ locals {
 }
 
 resource "aws_security_group" "web_server_sg" {
-  name        = var.sg_name
+  name        = var.instance_sg_name
   description = "Security group to allow traffic to the web server on port ${var.web_server_port}"
 
   tags = {
