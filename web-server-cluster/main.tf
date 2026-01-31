@@ -136,3 +136,38 @@ resource "aws_lb_listener" "http" {
     }
   }
 }
+
+resource "aws_lb_target_group" "web_server_tg" {
+  name        = "web-server-tg"
+  port        = var.web_server_port
+  protocol    = var.protocol
+  target_type = "instance"
+  vpc_id      = data.aws_vpc.default.id
+
+  health_check {
+    path                = "/"
+    port                = "traffic-port"
+    protocol            = var.protocol
+    matcher             = "200"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 5
+    unhealthy_threshold = 2
+  }
+}
+
+resource "aws_lb_listener_rule" "asg" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.web_server_tg.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["*"]
+    }
+  }
+}
