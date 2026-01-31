@@ -107,3 +107,32 @@ resource "aws_launch_template" "ubuntu" {
               EOF
   )
 }
+
+resource "aws_lb" "web_server_lb" {
+  name               = "web-server-lb"
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.alb_sg.id]
+  subnets            = local.selected_subnet_ids
+  internal           = false
+  ip_address_type    = "ipv4"
+
+  tags = {
+    Environment = "develop"
+  }
+}
+
+resource "aws_lb_listener" "http" {
+  load_balancer_arn = aws_lb.web_server_lb.arn
+  port              = var.alb_port
+  protocol          = var.protocol
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "404: page not found"
+      status_code  = 404
+    }
+  }
+}
