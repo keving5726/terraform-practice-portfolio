@@ -171,3 +171,24 @@ resource "aws_lb_listener_rule" "asg" {
     }
   }
 }
+
+resource "aws_autoscaling_group" "web_server_asg" {
+  name                = "WebServerASG"
+  vpc_zone_identifier = local.selected_subnet_ids
+  target_group_arns   = [aws_lb_target_group.web_server_tg.arn]
+  health_check_type   = "ELB"
+  desired_capacity    = 3
+  min_size            = 2
+  max_size            = 5
+
+  launch_template {
+    id      = aws_launch_template.ubuntu.id
+    version = "$Latest"
+  }
+
+  tag {
+    key                 = "Name"
+    value               = "Web Server"
+    propagate_at_launch = true
+  }
+}
