@@ -79,9 +79,9 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
 resource "aws_vpc_security_group_ingress_rule" "allow_ipv4" {
   security_group_id = aws_security_group.web_server_sg.id
 
-  cidr_ipv4   = var.sg_cidr_ipv4
+  cidr_ipv4   = var.cidr_ipv4
   from_port   = var.web_server_port
-  ip_protocol = var.sg_ip_protocol
+  ip_protocol = var.ip_protocol
   to_port     = var.web_server_port
 }
 
