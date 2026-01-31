@@ -86,13 +86,18 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ipv4" {
 }
 
 resource "aws_launch_template" "ubuntu" {
-  name                   = "UbuntuNobleNumbat"
-  image_id               = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  description            = "Ubuntu template used for the web server cluster"
-  vpc_security_group_ids = [aws_security_group.web_server_sg.id]
+  name          = "UbuntuNobleNumbat"
+  description   = "Ubuntu template used for the web server cluster"
+  image_id      = data.aws_ami.ubuntu.id
+  instance_type = var.instance_type
+
   monitoring {
     enabled = false
+  }
+
+  network_interfaces {
+    security_groups             = [aws_security_group.web_server_sg.id]
+    associate_public_ip_address = false
   }
 
   user_data = base64encode(<<-EOF
