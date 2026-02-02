@@ -4,7 +4,7 @@
 This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a web server using an EC2 instance. It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
 
 ## Infrastructure Overview
-In this project, Terraform is used to create a single AWS EC2 instance with the following characteristics:
+In this project, Terraform is used to create a web server using an EC2 instance with the following characteristics:
 - Ubuntu Server 24.04 LTS (HVM).
 - **t2.nano** instance type (eligible for AWS free tier).
 - Default VPC and subnet.
@@ -30,7 +30,7 @@ Remember to delete created resources to avoid charges on your AWS account.
 
 ### Pre-requisites
 
-- Terraform installed (version v1.14.3 or higher recommended).
+- Terraform installed (version v1.14.4 or higher recommended).
 - AWS CLI configured with your credentials and default region.
 - An AWS account with permissions to create EC2 instances.
 
