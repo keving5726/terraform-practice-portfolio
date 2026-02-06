@@ -9,9 +9,3 @@ variable "instance_type" {
   type        = string
   default     = "t2.nano"
 }
-
-variable "availability_zone" {
-  description = "Availability zone of the instance"
-  type        = string
-  default     = "us-east-1a"
-}
