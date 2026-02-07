@@ -4,7 +4,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-arm64-server-*"]
   }
 }
 
@@ -29,7 +29,6 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ipv4" {
 resource "aws_instance" "web_server_ec2" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
-  availability_zone      = var.availability_zone
   vpc_security_group_ids = [aws_security_group.web_server_ec2_sg.id]
 
   user_data = <<-EOF
