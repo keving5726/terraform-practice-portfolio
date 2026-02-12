@@ -8,8 +8,8 @@ This project aims to enable Infrastructure as Code (IaC) using Terraform, allowi
 
 ## Infrastructure Overview
 In this project, Terraform is used to create a web server cluster with the following characteristics:
-- Ubuntu Server 24.04 LTS (HVM).
-- **t2.nano** instance type (eligible for AWS free tier).
+- Ubuntu Server 24.04 LTS (HVM), arm64 noble image.
+- **t4g.micro** instance type (eligible for AWS free tier).
 - Default VPC and subnets.
 - Application Load Balancing (ALB).
 - Auto Scaling Group (ASG).
