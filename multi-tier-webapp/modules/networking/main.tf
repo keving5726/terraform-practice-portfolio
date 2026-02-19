@@ -40,3 +40,26 @@ module "alb_sg" {
     Name = "Application Load Balancer SG"
   }
 }
+
+module "web_server_sg" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.1"
+
+  name        = "web-server-sg"
+  description = "Security group for allow traffic to the web server on port ${var.web_server_port} and SSH"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_cidr_blocks = ["${var.private_network_cidr}"]
+  ingress_rules       = ["ssh-tcp"]
+  ingress_with_source_security_group_id = [
+    {
+      rule                     = "http-8080-tcp"
+      description              = "Allow traffic to the port ${var.web_server_port}"
+      source_security_group_id = module.alb_sg.security_group_id
+    }
+  ]
+
+  tags = {
+    Name = "Web Server SG"
+  }
+}
