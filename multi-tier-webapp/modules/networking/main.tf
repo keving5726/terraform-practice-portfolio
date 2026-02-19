@@ -63,3 +63,24 @@ module "web_server_sg" {
     Name = "Web Server SG"
   }
 }
+
+module "database_sg" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.1"
+
+  name        = "database-sg"
+  description = "Security group to allow traffic from web server to the database"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_with_source_security_group_id = [
+    {
+      rule                     = "mysql-tcp"
+      description              = "Allow traffic to the port 3306"
+      source_security_group_id = module.web_server_sg.security_group_id
+    }
+  ]
+
+  tags = {
+    Name = "Database SG"
+  }
+}
