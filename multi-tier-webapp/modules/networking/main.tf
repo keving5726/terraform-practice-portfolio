@@ -36,6 +36,9 @@ module "alb_sg" {
 
   ingress_cidr_blocks = var.allow_all_cidr
 
+  auto_egress_rules       = []
+  egress_with_cidr_blocks = var.default_egress_rule
+
   tags = {
     Name = "Application Load Balancer SG"
   }
@@ -59,6 +62,8 @@ module "web_server_sg" {
     }
   ]
 
+  egress_with_cidr_blocks = var.default_egress_rule
+
   tags = {
     Name = "Web Server SG"
   }
@@ -79,6 +84,8 @@ module "database_sg" {
       source_security_group_id = module.web_server_sg.security_group_id
     }
   ]
+
+  egress_with_cidr_blocks = var.default_egress_rule
 
   tags = {
     Name = "Database SG"
