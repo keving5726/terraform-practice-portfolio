@@ -31,7 +31,7 @@ module "alb_sg" {
   version = "5.3.1"
 
   name        = "alb-sg"
-  description = "Security group to allow traffic to the ALB on port ${var.alb_port}"
+  description = "Security group for ALB allowing inbound HTTP traffic on port ${var.alb_port}"
   vpc_id      = module.vpc.vpc_id
 
   ingress_cidr_blocks = var.allow_all_cidr
@@ -46,7 +46,7 @@ module "web_server_sg" {
   version = "5.3.1"
 
   name        = "web-server-sg"
-  description = "Security group for allow traffic to the web server on port ${var.web_server_port} and SSH"
+  description = "Security group for web servers allowing inbound HTTP traffic on port ${var.web_server_port} and SSH access on port 22"
   vpc_id      = module.vpc.vpc_id
 
   ingress_cidr_blocks = ["${var.private_network_cidr}"]
@@ -54,7 +54,7 @@ module "web_server_sg" {
   ingress_with_source_security_group_id = [
     {
       rule                     = "http-8080-tcp"
-      description              = "Allow traffic to the port ${var.web_server_port}"
+      description              = "Allows inbound HTTP traffic on port ${var.web_server_port} from the ALB security group"
       source_security_group_id = module.alb_sg.security_group_id
     }
   ]
@@ -69,13 +69,13 @@ module "database_sg" {
   version = "5.3.1"
 
   name        = "database-sg"
-  description = "Security group to allow traffic from web server to the database"
+  description = "Security group for RDS allowing inbound MySQL access"
   vpc_id      = module.vpc.vpc_id
 
   ingress_with_source_security_group_id = [
     {
       rule                     = "mysql-tcp"
-      description              = "Allow traffic to the port 3306"
+      description              = "Allows inbound MySQL access from web server security group"
       source_security_group_id = module.web_server_sg.security_group_id
     }
   ]
