@@ -51,3 +51,61 @@ module "iam_role_instance_profile" {
     Terraform   = "true"
   }
 }
+
+module "alb" {
+  source  = "terraform-aws-modules/alb/aws"
+  version = "10.5.0"
+
+  name                       = "webapp-alb"
+  load_balancer_type         = "application"
+  vpc_id                     = var.vpc.vpc_id
+  subnets                    = var.vpc.public_subnets
+  security_groups            = [var.sg.alb]
+  enable_deletion_protection = false
+
+  listeners = {
+    ex_http = {
+      port     = 80
+      protocol = "HTTP"
+
+      actions = [{
+        fixed_response = {
+          content_type = "text/plain"
+          status_code  = 404
+          message_body = "404: Page not found"
+        }
+      }]
+
+      forward = {
+        target_group_key = "ex_asg"
+      }
+    }
+  }
+
+  target_groups = {
+    ex_asg = {
+      name              = "webapp-tg"
+      protocol          = "HTTP"
+      port              = 8080
+      target_type       = "instance"
+      create_attachment = false
+
+      health_check = {
+        enabled             = true
+        path                = "/"
+        port                = "traffic-port"
+        protocol            = "HTTP"
+        matcher             = "200"
+        interval            = 30
+        timeout             = 5
+        healthy_threshold   = 5
+        unhealthy_threshold = 2
+      }
+    }
+  }
+
+  tags = {
+    Environment = "dev"
+    Terraform   = "true"
+  }
+}
