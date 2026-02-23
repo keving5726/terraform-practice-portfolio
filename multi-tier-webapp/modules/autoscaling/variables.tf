@@ -9,3 +9,13 @@ variable "vpc" {
 variable "sg" {
   type = any
 }
+
+variable "db_config" {
+  type = object({
+    hostname = string
+    port     = number
+    database = string
+    user     = string
+    password = string
+  })
+}
