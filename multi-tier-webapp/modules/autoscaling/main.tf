@@ -123,3 +123,42 @@ resource "aws_launch_template" "ubuntu_webapp" {
     name = module.iam_role_instance_profile.name
   }
 }
+
+module "autoscaling" {
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "9.2.0"
+
+  name            = "WebAppASG"
+  use_name_prefix = false
+  instance_name   = "WebApp"
+
+  ignore_desired_capacity_changes = true
+
+  target_group_arns         = module.alb.target_groups
+  desired_capacity          = 2
+  min_size                  = 1
+  max_size                  = 3  
+  wait_for_capacity_timeout = 0
+  default_instance_warmup   = 300
+  health_check_type         = "EC2"
+  vpc_zone_identifier       = var.vpc.private_subnets
+
+  create_launch_template = false
+  launch_template_id     = aws_launch_template.ubuntu_webapp.id
+
+  traffic_source_attachments = {
+    ex_alb = {
+      traffic_source_identifier = module.alb.target_groups["ex_asg"].arn
+      traffic_source_type       = "elbv2"
+    }
+  }
+
+  capacity_reservation_specification = {
+    capacity_reservation_preference = "open"
+  }
+
+  tag_specifications = [{
+    resource_type = "instance"
+    tags          = { WhatAmI = "Instance" }
+  }]
+}
