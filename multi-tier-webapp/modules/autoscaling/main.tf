@@ -109,3 +109,17 @@ module "alb" {
     Terraform   = "true"
   }
 }
+
+resource "aws_launch_template" "ubuntu_webapp" {
+  name                   = "UbuntuWebApp"
+  description            = "Ubuntu template used for the multi tier webapp"
+  image_id               = data.aws_ami.ubuntu.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [var.sg.web_server]
+  key_name               = var.ssh_keypair
+  user_data              = data.cloudinit_config.config.rendered
+
+  iam_instance_profile {
+    name = module.iam_role_instance_profile.name
+  }
+}
