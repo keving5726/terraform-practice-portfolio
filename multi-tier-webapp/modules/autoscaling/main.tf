@@ -134,7 +134,6 @@ module "autoscaling" {
 
   ignore_desired_capacity_changes = true
 
-  target_group_arns         = module.alb.target_groups
   desired_capacity          = 2
   min_size                  = 1
   max_size                  = 3
