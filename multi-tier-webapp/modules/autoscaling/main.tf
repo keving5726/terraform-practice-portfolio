@@ -137,7 +137,7 @@ module "autoscaling" {
   target_group_arns         = module.alb.target_groups
   desired_capacity          = 2
   min_size                  = 1
-  max_size                  = 3  
+  max_size                  = 3
   wait_for_capacity_timeout = 0
   default_instance_warmup   = 300
   health_check_type         = "EC2"
