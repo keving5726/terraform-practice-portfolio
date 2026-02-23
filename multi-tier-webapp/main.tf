@@ -6,15 +6,13 @@ module "networking" {
 module "database" {
   source    = "./modules/database"
   namespace = var.namespace
-
-  vpc = module.networking.vpc
-  sg  = module.networking.sg
+  vpc       = module.networking.vpc
+  sg        = module.networking.sg
 }
 
 module "autoscaling" {
-  source      = "./modules/autoscaling"
-  namespace   = var.namespace
-
+  source    = "./modules/autoscaling"
+  namespace = var.namespace
   vpc       = module.networking.vpc
   sg        = module.networking.sg
   db_config = module.database.db_config
