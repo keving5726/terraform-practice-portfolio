@@ -31,6 +31,7 @@ module "alb_sg" {
   version = "5.3.1"
 
   name        = "alb-sg"
+  use_name_prefix = false
   description = "Security group for ALB allowing inbound HTTP traffic on port ${var.alb_port}"
   vpc_id      = module.vpc.vpc_id
 
@@ -49,6 +50,7 @@ module "web_server_sg" {
   version = "5.3.1"
 
   name        = "web-server-sg"
+  use_name_prefix = false
   description = "Security group for web servers allowing inbound HTTP traffic on port ${var.web_server_port} and SSH access on port 22"
   vpc_id      = module.vpc.vpc_id
 
@@ -74,6 +76,7 @@ module "database_sg" {
   version = "5.3.1"
 
   name        = "database-sg"
+  use_name_prefix = false
   description = "Security group for RDS allowing inbound MySQL access"
   vpc_id      = module.vpc.vpc_id
 
