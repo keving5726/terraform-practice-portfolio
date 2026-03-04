@@ -5,8 +5,8 @@ This practice aims to demonstrate the basics of using Terraform to provision inf
 
 ## Infrastructure Overview
 In this project, Terraform is used to create a single AWS EC2 instance with the following characteristics:
-- Amazon Linux 2023 AMI (kernel-6.12).
-- **t2.nano** instance type (eligible for AWS free tier).
+- Amazon Linux 2023 AMI 2023.10.20260120.4 arm64 HVM kernel-6.12.
+- **t4g.micro** instance type (eligible for AWS free tier).
 - Default VPC and subnet.
 
 ### Architecture Diagram
@@ -17,7 +17,7 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 
 ### Flowchart
 
-<div align="center">
+<div align="center">  
   <img width="549" height="181" alt="basic-ec2-flow drawio" src="https://github.com/user-attachments/assets/7a3eb31a-0722-4878-a4bd-f8a6c80d7c4e" />
 </div>
 
@@ -29,7 +29,7 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 ### Terraform Dependency Graph
 
 <div align="center">
-  <img width="937" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/5732fb82-4f3c-4779-8582-b36710910635" />
+  <img width="815" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/1b685485-a6de-4049-bd05-d3d12d18a7f8" />  
 </div>
 
 The goal is to get familiar with Terraform configuration files, providers, resources, and basic commands.

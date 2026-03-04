@@ -4,7 +4,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-arm64-server-*"]
   }
 }
 
@@ -122,7 +122,7 @@ resource "aws_lb_listener" "http" {
 
     fixed_response {
       content_type = "text/plain"
-      message_body = "404: page not found"
+      message_body = "404: Page not found"
       status_code  = 404
     }
   }

@@ -4,12 +4,12 @@
 Automate the provisioning and management of a scalable and highly available infrastructure on AWS to host a web server cluster.
 Using Terraform, the project deploys EC2 instances managed by Auto Scaling Groups (ASG) to ensure dynamic scalability, alongside an Application Load Balancer (ALB) that efficiently distributes traffic and enhances service availability.
 
-This project aims to enable Infrastructure as Code (IaC) using Terraform, allowing reproducible deployments, version control, and simplified maintenance of the web architecture on AWS.
+This practice aims to enable Infrastructure as Code (IaC) using Terraform, allowing reproducible deployments, version control, and simplified maintenance of the web architecture on AWS.
 
 ## Infrastructure Overview
 In this project, Terraform is used to create a web server cluster with the following characteristics:
-- Ubuntu Server 24.04 LTS (HVM).
-- **t2.nano** instance type (eligible for AWS free tier).
+- Ubuntu Server 24.04 LTS (HVM), arm64 noble image.
+- **t4g.micro** instance type (eligible for AWS free tier).
 - Default VPC and subnets.
 - Application Load Balancing (ALB).
 - Auto Scaling Group (ASG).

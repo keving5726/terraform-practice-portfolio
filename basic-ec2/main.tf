@@ -4,12 +4,12 @@ data "aws_ami" "amazon_linux" {
 
   filter {
     name   = "name"
-    values = ["al2023-ami-2023.10.20260105.0-kernel-6.12*"]
+    values = ["al2023-ami-2023.10.20260120.4-kernel-6.12*"]
   }
 
   filter {
     name   = "architecture"
-    values = ["x86_64"]
+    values = ["arm64"]
   }
 
   filter {
@@ -41,7 +41,6 @@ data "aws_ami" "amazon_linux" {
 resource "aws_instance" "basic_ec2" {
   ami               = data.aws_ami.amazon_linux.id
   instance_type     = var.instance_type
-  availability_zone = var.availability_zone
 
   tags = {
     Name = "Basic EC2"

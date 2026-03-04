@@ -5,8 +5,8 @@ This practice aims to demonstrate the basics of using Terraform to provision inf
 
 ## Infrastructure Overview
 In this project, Terraform is used to create a web server using an EC2 instance with the following characteristics:
-- Ubuntu Server 24.04 LTS (HVM).
-- **t2.nano** instance type (eligible for AWS free tier).
+- Ubuntu Server 24.04 LTS (HVM), arm64 noble image.
+- **t4g.micro** instance type (eligible for AWS free tier).
 - Default VPC and subnet.
 
 ### Architecture Diagram
@@ -18,7 +18,7 @@ In this project, Terraform is used to create a web server using an EC2 instance 
 ### Terraform Dependency Graph
 
 <div align="center">
-  <img width="1523" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/e1fe315b-ce27-4750-ad7c-1b80783f84fc" />
+  <img width="1423" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/d1680de7-e002-4da8-a26d-44b28cfd867b" />
 </div>
 
 The goal is to get familiar with Terraform configuration files, providers, resources, and basic commands.
