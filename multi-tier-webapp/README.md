@@ -46,3 +46,59 @@ In this project, Terraform is used to create a multi-tiered web application in A
 <div align="center">
   <img width="711" height="241" alt="Multi-tiered-web-app-dependencies drawio" src="https://github.com/user-attachments/assets/4798cf74-e4f1-41bb-9d05-72d28d3dde3d" />
 </div>
+
+## How to Run
+
+**NOTE:** This practice will deploy real resources into your AWS account.
+Remember to delete created resources to avoid charges on your AWS account.
+
+### Pre-requisites
+
+- Terraform installed (version v1.14.5 or higher recommended).
+- AWS CLI configured with your credentials and default region.
+- An AWS account with permissions to create EC2 instances, RDS instances, Auto Scaling group and Application Load Balancing.
+
+### Steps
+
+Initialize Terraform (downloads provider plugins):
+```bash
+terraform init
+```
+
+Preview the infrastructure changes Terraform will apply:
+```bash
+terraform plan
+```
+
+Apply the configuration to create the multi-tiered web application:
+```bash
+terraform apply
+```
+
+Check the **Outputs** in the terminal, for example:
+```bash
+Outputs:
+
+alb_dns_name = "http://webapp-alb-792144198.us-east-1.elb.amazonaws.com"
+```
+
+From your browser, enter the DNS name:
+```bash
+http://webapp-alb-792144198.us-east-1.elb.amazonaws.com
+```
+
+You should see the multi-tiered web application for a social media site geared toward pet owners:
+
+<div align="center">
+  <img width="1914" height="1007" alt="pets" src="https://github.com/user-attachments/assets/b22a46f9-4649-4602-a913-8bb0ef46956b" />
+</div>
+
+You can take a look at all the resources created using the AWS Management Console.
+
+Clean up when you're done:
+```bash
+terraform destroy
+```
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+You can extend this by adding variables, outputs, and more complex resources in future practices.
