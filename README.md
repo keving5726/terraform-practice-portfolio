@@ -12,3 +12,34 @@ Each folder represents an independent Terraform practice with its own focus and 
 - [web-server-ec2](web-server-ec2): Deploy a web server on a single EC2 instance with custom configuration. Great for understanding server provisioning and configuration management.
 - [web-server-cluster](web-server-cluster): Set up a scalable web server cluster. Learn about load balancing and managing multiple instances for high availability.
 - [multi-tier-webapp](multi-tier-webapp): Build a multi-tier web application architecture. Demonstrates how to organize infrastructure with separate layers like presentation, application, and data.
+
+## 🚀 Getting Started
+
+**NOTE**: These practices will deploy real resources into your AWS account. Remember to delete created resources to avoid charges on your AWS account.
+
+Follow these steps to run any practice:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/keving5726/terraform-practice-portfolio.git
+```
+2. Navigate to the practice folder you want to try, for example:
+```bash
+cd terraform-practice-portfolio/basic-ec2
+```
+3. Initialize Terraform (downloads providers and configures backend):
+```bash
+terraform init
+```
+4. Preview the changes Terraform will make:
+```bash
+terraform plan
+```
+5. Apply the configuration to create resources:
+```bash
+terraform apply
+```
+6. When done, clean up resources to avoid costs:
+```bash
+terraform destroy
+```
