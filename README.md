@@ -4,8 +4,6 @@ Welcome to my Terraform Practice Portfolio!
 
 This repository contains a collection of hands-on Terraform practices designed to help you master Infrastructure as Code (IaC) by deploying various AWS resources and architectures.
 
----
-
 ## 📂 Practice Structure
 
 Each folder represents an independent Terraform practice with its own focus and learning objectives:
