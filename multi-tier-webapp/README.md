@@ -38,7 +38,7 @@ In this project, Terraform is used to create a multi-tiered web application in A
 ### Architecture Diagram
 
 <div align="center">
-  <img width="1052" height="991" alt="Multi-tiered-web-app drawio" src="https://github.com/user-attachments/assets/c36de098-ac82-4f65-a466-0378f3b5bff5" />
+  <img width="1052" height="821" alt="Multi-tiered-web-app drawio" src="https://github.com/user-attachments/assets/f81fb293-5506-476c-b01e-7031d5710cdf" />
 </div>
 
 ### Terraform Dependency Graph
