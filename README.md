@@ -43,3 +43,10 @@ terraform apply
 ```bash
 terraform destroy
 ```
+
+## 💡 Tips & Best Practices
+
+- Each practice is self-contained, feel free to experiment without affecting others.
+- Always run `terraform plan` before `terraform apply` to review changes.
+- Check for any **README.md** file inside each practice folder for specific instructions.
+- Remember to run `terraform destroy` at the end of the practice to avoid charges.
