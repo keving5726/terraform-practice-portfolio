@@ -10,7 +10,7 @@ Multi-tier simply refers to a software system that is divided into logical layer
 
 This practice aims to demonstrate proficiency in Infrastructure as Code (IaC) by automating the provisioning of network components, load balancers, auto-scaling groups, and backend services to ensure fault tolerance, scalability, and efficient resource management in a cloud environment.
 
-Additionally, the practice will incorporate the use of official AWS Terraform modules and external community modules to learn how to integrate and manage reusable modules effectively, enhancing code modularity and maintainability.
+The practice will incorporate the use of official AWS Terraform modules as well as external community modules to learn how to effectively integrate and manage reusable modules. Additionally, it will include the use of nested modules to enhance code modularity, promote better organization, and improve maintainability across complex infrastructure deployments.
 
 ## Infrastructure Overview
 In this project, Terraform is used to create a multi-tiered web application in AWS with the following characteristics:
