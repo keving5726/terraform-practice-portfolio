@@ -50,3 +50,8 @@ terraform destroy
 - Always run `terraform plan` before `terraform apply` to review changes.
 - Check for any **README.md** file inside each practice folder for specific instructions.
 - Remember to run `terraform destroy` at the end of the practice to avoid charges.
+
+## 📜 License
+
+This repository is Unlicensed.
+Feel free to use and modify the code as you wish — no restrictions!
