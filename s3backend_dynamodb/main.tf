@@ -5,3 +5,7 @@ resource "random_string" "rand" {
   special = false
   upper   = false
 }
+
+locals {
+  namespace = substr(join("-", [var.namespace, random_string.rand.result]), 0, 24)
+}
