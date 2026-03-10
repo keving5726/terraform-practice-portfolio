@@ -3,3 +3,9 @@ variable "namespace" {
   default     = "s3backend_dynamodb"
   type        = string
 }
+
+variable "principal_arns" {
+  description = "A list of principal ARNs allowed to assume the IAM role"
+  default     = null
+  type        = list(string)
+}
