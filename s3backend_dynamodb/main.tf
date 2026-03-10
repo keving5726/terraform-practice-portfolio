@@ -49,18 +49,18 @@ resource "aws_s3_bucket" "tf_backend" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "tf_backend" {
-  bucket = aws_s3_bucket.state.id
+  bucket = aws_s3_bucket.tf_backend.id
 
   rule {
     apply_server_side_encryption_by_default {
-      kms_master_key_id = aws_kms_key.s3_backend.arn
+      kms_master_key_id = aws_kms_key.tf_backend.arn
       sse_algorithm     = "aws:kms"
     }
   }
 }
 
 resource "aws_s3_bucket_versioning" "enabled" {
-  bucket = aws_s3_bucket.state.id
+  bucket = aws_s3_bucket.tf_backend.id
 
   versioning_configuration {
     status = "Enabled"
@@ -68,7 +68,7 @@ resource "aws_s3_bucket_versioning" "enabled" {
 }
 
 resource "aws_s3_bucket_public_access_block" "block" {
-  bucket = aws_s3_bucket.state.id
+  bucket = aws_s3_bucket.tf_backend.id
 
   block_public_acls       = true
   block_public_policy     = true
