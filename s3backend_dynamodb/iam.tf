@@ -35,3 +35,7 @@ data "aws_iam_policy_document" "tf_backend" {
     ]
   }
 }
+
+locals {
+  principal_arns = var.principal_arns != null ? var.principal_arns : [data.aws_caller_identity.current.arn]
+}
