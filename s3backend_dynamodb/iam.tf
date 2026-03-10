@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "tf_backend" {
     ]
 
     resources = [
-      aws_s3_bucket.s3_bucket.arn,
+      aws_s3_bucket.tf_backend.arn,
     ]
   }
 
@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "tf_backend" {
     ]
 
     resources = [
-      "${aws_s3_bucket.s3_bucket.arn}/*",
+      "${aws_s3_bucket.tf_backend.arn}/*",
     ]
   }
 
@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "tf_backend" {
     ]
 
     resources = [
-      aws_dynamodb_table.dynamodb_table.arn,
+      aws_dynamodb_table.tf_backend.arn,
     ]
   }
 }
@@ -67,10 +67,10 @@ resource "aws_iam_policy" "tf_backend" {
   name        = "${local.namespace}-tf-policy"
   description = "Terraform policy for S3 backend"
   path        = "/"
-  policy      = data.aws_iam_policy_document.policy_doc.json
+  policy      = data.aws_iam_policy_document.tf_backend.json
 }
 
 resource "aws_iam_role_policy_attachment" "tf_backend" {
-  role       = aws_iam_role.iam_role.name
-  policy_arn = aws_iam_policy.iam_policy.arn
+  role       = aws_iam_role.tf_backend.name
+  policy_arn = aws_iam_policy.tf_backend.arn
 }
