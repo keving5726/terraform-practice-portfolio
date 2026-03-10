@@ -39,3 +39,26 @@ data "aws_iam_policy_document" "tf_backend" {
 locals {
   principal_arns = var.principal_arns != null ? var.principal_arns : [data.aws_caller_identity.current.arn]
 }
+
+resource "aws_iam_role" "tf_backend" {
+  name        = "${local.namespace}-tf-backend"
+  description = "Terraform role for S3 backend"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          AWS = "${jsonencode(local.principal_arns)}"
+        }
+      }
+    ]
+  })
+
+  tags = {
+    ResourceGroup = local.namespace
+  }
+}
