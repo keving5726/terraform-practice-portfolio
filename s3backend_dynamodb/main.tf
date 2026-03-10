@@ -30,3 +30,11 @@ resource "aws_resourcegroups_group" "tf_backend" {
   JSON
   }
 }
+
+resource "aws_kms_key" "tf_backend" {
+  description = "Terraform KMS key for S3 backend"
+
+  tags = {
+    ResourceGroup = local.namespace
+  }
+}
