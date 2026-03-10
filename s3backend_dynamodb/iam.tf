@@ -52,7 +52,7 @@ resource "aws_iam_role" "tf_backend" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          AWS = ${jsonencode(local.principal_arns)}
+          AWS = local.principal_arns
         }
       }
     ]
