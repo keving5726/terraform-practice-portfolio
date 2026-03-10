@@ -62,3 +62,10 @@ resource "aws_iam_role" "tf_backend" {
     ResourceGroup = local.namespace
   }
 }
+
+resource "aws_iam_policy" "tf_backend" {
+  name        = "${local.namespace}-tf-policy"
+  description = "Terraform policy for S3 backend"
+  path        = "/"
+  policy      = data.aws_iam_policy_document.policy_doc.json
+}
