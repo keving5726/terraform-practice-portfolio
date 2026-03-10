@@ -69,3 +69,8 @@ resource "aws_iam_policy" "tf_backend" {
   path        = "/"
   policy      = data.aws_iam_policy_document.policy_doc.json
 }
+
+resource "aws_iam_role_policy_attachment" "tf_backend" {
+  role       = aws_iam_role.iam_role.name
+  policy_arn = aws_iam_policy.iam_policy.arn
+}
