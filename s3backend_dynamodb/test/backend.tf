@@ -1,8 +1,9 @@
 terraform {
   backend "s3" {
-    bucket  = ""
-    key     = ""
-    encrypt = true
+    bucket       = ""
+    key          = ""
+    encrypt      = true
+    use_lockfile = false
 
     region = ""
 
