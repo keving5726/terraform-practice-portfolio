@@ -17,3 +17,14 @@ How the S3 backend with DynamoDB works:
 </div>
 
 This practice is focused on testing the S3 backend configuration with DynamoDB for state locking, in order to help you begin testing Terraform S3 backends effectively.
+
+## Infrastructure Overview
+
+The infrastructure consists of the following key components:
+- 1 KMS key.
+- 1 S3 bucket.
+- 1 DynamoDB table.
+- 1 IAM role.
+- 1 IAM policy.
+- 1 resource group.
+- 2 EC2 instances: **t4g.micro** (eligible for AWS free tier).
