@@ -28,3 +28,17 @@ The infrastructure consists of the following key components:
 - 1 IAM policy.
 - 1 resource group.
 - 2 EC2 instances: **t4g.micro** (eligible for AWS free tier).
+
+## Architecture Diagrams
+
+### Deploy
+
+<div align="center">
+  <img width="751" height="451" alt="s3backend-deploy drawio" src="https://github.com/user-attachments/assets/07b432a5-0a81-4c3e-8dd1-b72eca122d83" />
+</div>
+
+### Workspaces
+
+<div align="center">
+  <img width="641" height="551" alt="s3backend-workspaces drawio" src="https://github.com/user-attachments/assets/4b0748bb-27a8-447b-b6e9-1530093eb355" />
+</div>
