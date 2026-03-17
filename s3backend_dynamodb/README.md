@@ -19,7 +19,7 @@ How the S3 backend with DynamoDB works:
 3. Your Terraform state files are securely stored in an S3 bucket with server-side encryption using AWS KMS, ensuring data confidentiality at rest.
 
 <div align="center">
-  <img width="669" height="319" alt="s3backend-module drawio" src="https://github.com/user-attachments/assets/97b65821-6ddb-43c6-ae44-264147f096b7" />
+  <img width="669" height="319" alt="s3backend-dynamodb-module drawio" src="https://github.com/user-attachments/assets/97b65821-6ddb-43c6-ae44-264147f096b7" />
 </div>
 
 This practice is focused on testing the S3 backend configuration with DynamoDB for state locking, in order to help you begin testing Terraform S3 backends effectively.
@@ -41,7 +41,7 @@ The infrastructure consists of the following key components:
 ### Deploy
 
 <div align="center">
-  <img width="751" height="451" alt="s3backend-deploy drawio" src="https://github.com/user-attachments/assets/07b432a5-0a81-4c3e-8dd1-b72eca122d83" />
+  <img width="751" height="451" alt="s3backend-dynamodb-deploy drawio" src="https://github.com/user-attachments/assets/07b432a5-0a81-4c3e-8dd1-b72eca122d83" />
 </div>
 
 ### Workspaces
