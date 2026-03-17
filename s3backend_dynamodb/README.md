@@ -3,11 +3,13 @@
 ## Objective
 
 The objective of this practice is to:
+
 - Understand how to configure and test a remote backend using S3 and DynamoDB in Terraform.
 - Validate state locking functionality to prevent concurrent state modifications.
 - Explore workspace management for environment separation.
 
 How the S3 backend with DynamoDB works:
+
 1. Access is controlled by a least-privileged IAM role that authorized users or services assume to gain temporary permissions for reading/writing state files and using the encryption keys.
 2. DynamoDB provides a locking mechanism to coordinate access and prevent simultaneous state changes, maintaining integrity and avoiding conflicts.
 3. Your Terraform state files are securely stored in an S3 bucket with server-side encryption using AWS KMS, ensuring data confidentiality at rest.
@@ -21,6 +23,7 @@ This practice is focused on testing the S3 backend configuration with DynamoDB f
 ## Infrastructure Overview
 
 The infrastructure consists of the following key components:
+
 - 1 KMS key.
 - 1 S3 bucket.
 - 1 DynamoDB table.
@@ -54,6 +57,7 @@ The infrastructure consists of the following key components:
 **NOTE:** This practice will deploy real resources into your AWS account. Remember to delete created resources to avoid charges on your AWS account.
 
 ### Pre-requisites
+
 - Terraform installed (version v1.14.7 or higher recommended).
 - AWS CLI configured with your credentials and default region.
 - An AWS account with permissions to create KMS keys, S3 buckets, DynamoDB tables, IAM roles, IAM policies and EC2 instances.
@@ -61,6 +65,7 @@ The infrastructure consists of the following key components:
 ### Steps
 
 1. The first step is to deploy the S3 backend:
+
    - Navigate to the **deploy** folder to run Terraform commands:
      ```bash
      cd deploy
@@ -90,6 +95,7 @@ The infrastructure consists of the following key components:
      ```
 
 2. The second step is to run tests to confirm that the S3 backend with DynamoDB is working correctly:
+
    - Navigate to the **test** folder to run Terraform commands:
      ```bash
      cd test
@@ -124,6 +130,7 @@ The infrastructure consists of the following key components:
    - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
 
 3. The third step involves using Terraform workspaces to manage multiple environments (dev and prod):
+
    - Navigate to the **workspaces** folder to run Terraform commands:
      ```bash
      cd workspaces
@@ -174,6 +181,7 @@ The infrastructure consists of the following key components:
    - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
 
 4. The fourth step is to clean up:
+
    - Delete the **prod** deployment:
      ```bash
      terraform select prod
@@ -190,5 +198,7 @@ The infrastructure consists of the following key components:
      terraform destroy
      ```
 
-This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+## 🚀 Looking Ahead
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.\
 You can extend this by adding variables, outputs, and more complex resources in future practices.
