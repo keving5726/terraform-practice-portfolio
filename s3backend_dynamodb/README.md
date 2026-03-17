@@ -57,3 +57,34 @@ The infrastructure consists of the following key components:
 - Terraform installed (version v1.14.7 or higher recommended).
 - AWS CLI configured with your credentials and default region.
 - An AWS account with permissions to create KMS keys, S3 buckets, DynamoDB tables, IAM roles, IAM policies and EC2 instances.
+
+### Steps
+
+1. The first step is to deploy the S3 backend:
+   - Navigate to the **deploy** folder to run Terraform commands:
+     ```bash
+     cd deploy
+     ```
+   - Initialize Terraform (downloads provider plugins):
+     ```bash
+     terraform init
+     ```
+   - Preview the infrastructure changes Terraform will apply:
+     ```bash
+     terraform plan
+     ```
+   - Apply the configuration to deploy the S3 backend with DynamoDB:
+     ```bash
+     terraform apply
+     ```
+   - Check the **Outputs** in the terminal, for example:
+     ```bash
+     Outputs:
+
+     s3backend_config = {
+       "bucket" = "s3backend-dynamodb-ge5af-tf-backend"
+       "dynamodb_table" = "s3backend-dynamodb-ge5af-tf-lock"
+       "region" = "us-east-1"
+       "role_arn" = "arn:aws:iam::081276790814:role/s3backend-dynamodb-ge5af-tf-backend"
+     }
+     ```
