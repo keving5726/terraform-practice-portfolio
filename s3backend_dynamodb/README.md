@@ -48,3 +48,12 @@ The infrastructure consists of the following key components:
 <div align="center">
   <img width="411" height="381" alt="s3backend-dependencies drawio" src="https://github.com/user-attachments/assets/90214943-8c4f-4eac-9638-7bdf0a2d78a2" />
 </div>
+
+## How to Run
+
+**NOTE:** This practice will deploy real resources into your AWS account. Remember to delete created resources to avoid charges on your AWS account.
+
+### Pre-requisites
+- Terraform installed (version v1.14.7 or higher recommended).
+- AWS CLI configured with your credentials and default region.
+- An AWS account with permissions to create KMS keys, S3 buckets, DynamoDB tables, IAM roles, IAM policies and EC2 instances.
