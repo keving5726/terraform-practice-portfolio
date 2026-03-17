@@ -172,3 +172,23 @@ The infrastructure consists of the following key components:
      terraform apply -var-file="./environments/dev.tfvars"
      ```
    - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
+
+4. The fourth step is to clean up:
+   - Delete the **prod** deployment:
+     ```bash
+     terraform select prod
+     terraform destroy -var-file="./environments/prod.tfvars"
+     ```
+   - Delete the **dev** deployment:
+     ```bash
+     terraform select dev
+     terraform destroy -var-file="./environments/dev.tfvars"
+     ```
+   - Finally, switch back into the **deploy** directory from which you deployed the S3 backend, and run terraform destroy:
+     ```bash
+     cd deploy
+     terraform destroy
+     ```
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+You can extend this by adding variables, outputs, and more complex resources in future practices.
