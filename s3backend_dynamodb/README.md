@@ -88,3 +88,37 @@ The infrastructure consists of the following key components:
        "role_arn" = "arn:aws:iam::081276790814:role/s3backend-dynamodb-ge5af-tf-backend"
      }
      ```
+
+2. The second step is to run tests to confirm that the S3 backend with DynamoDB is working correctly:
+   - Navigate to the **test** folder to run Terraform commands:
+     ```bash
+     cd test
+     ```
+   - Create the **backend.config** file to configure the backend using the **output** from step **1**, for example:
+     ```bash
+     bucket = "s3backend-dynamodb-ge5af-tf-backend"
+     key = "test"
+     encrypt = true
+     use_lockfile = false
+
+     region = "us-east-1"
+
+     dynamodb_table = "s3backend-dynamodb-ge5af-tf-lock"
+
+     assume_role = {
+       role_arn = "arn:aws:iam::081276790814:role/s3backend-dynamodb-nr1ye-tf-backend"
+     }
+     ```
+   - Initialize Terraform (downloads provider plugins):
+     ```bash
+     terraform init -backend-config="./backend.config"
+     ```
+   - Preview the infrastructure changes Terraform will apply:
+     ```bash
+     terraform plan
+     ```
+   - Apply the configuration to deploy the S3 backend with DynamoDB:
+     ```bash
+     terraform apply
+     ```
+   - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
