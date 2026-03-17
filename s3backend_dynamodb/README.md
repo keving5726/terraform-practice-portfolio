@@ -122,3 +122,53 @@ The infrastructure consists of the following key components:
      terraform apply
      ```
    - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
+
+3. The third step involves using Terraform workspaces to manage multiple environments (dev and prod):
+   - Navigate to the **workspaces** folder to run Terraform commands:
+     ```bash
+     cd workspaces
+     ```
+   - Create the **backend.config** file to configure the backend using the **output** from step **1**, for example:
+     ```bash
+     bucket = "s3backend-dynamodb-ge5af-tf-backend"
+     key = "test"
+     encrypt = true
+     use_lockfile = false
+
+     region = "us-east-1"
+
+     dynamodb_table = "s3backend-dynamodb-ge5af-tf-lock"
+
+     assume_role = {
+       role_arn = "arn:aws:iam::081276790814:role/s3backend-dynamodb-nr1ye-tf-backend"
+     }
+     ```
+   - Initialize Terraform (downloads provider plugins):
+     ```bash
+     terraform init -backend-config="./backend.config"
+     ```
+   - Create and switch to a new workspace called **prod**:
+     ```bash
+     terraform workspace new prod
+     ```
+   - Preview the infrastructure changes Terraform will apply:
+     ```bash
+     terraform plan -var-file="./environments/prod.tfvars"
+     ```
+   - Apply the configuration to deploy the S3 backend with DynamoDB:
+     ```bash
+     terraform apply -var-file="./environments/prod.tfvars"
+     ```
+   - Create and switch to a new workspace called **dev**:
+     ```bash
+     terraform workspace new dev
+     ```
+   - Preview the infrastructure changes Terraform will apply:
+     ```bash
+     terraform plan -var-file="./environments/dev.tfvars"
+     ```
+   - Apply the configuration to deploy the S3 backend with DynamoDB:
+     ```bash
+     terraform apply -var-file="./environments/dev.tfvars"
+     ```
+   - You can now check from the **AWS Management Console** that Terraform states are being saved in the S3 bucket and that DynamoDB is performing locks correctly.
