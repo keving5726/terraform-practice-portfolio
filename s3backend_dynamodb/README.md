@@ -1,6 +1,6 @@
 # Terraform Practice: S3 Backend with DynamoDB
 
-## Objective
+## :dart: Objective
 
 The objective of this practice is to:
 
@@ -20,7 +20,7 @@ How the S3 backend with DynamoDB works:
 
 This practice is focused on testing the S3 backend configuration with DynamoDB for state locking, in order to help you begin testing Terraform S3 backends effectively.
 
-## Infrastructure Overview
+## :building_construction: Infrastructure Overview
 
 The infrastructure consists of the following key components:
 
@@ -32,7 +32,7 @@ The infrastructure consists of the following key components:
 - 1 resource group.
 - 2 EC2 instances: **t4g.micro** (eligible for AWS free tier).
 
-## Architecture Diagrams
+## :world_map: Architecture Diagrams
 
 ### Deploy
 
@@ -52,7 +52,7 @@ The infrastructure consists of the following key components:
   <img width="411" height="381" alt="s3backend-dependencies drawio" src="https://github.com/user-attachments/assets/90214943-8c4f-4eac-9638-7bdf0a2d78a2" />
 </div>
 
-## How to Run
+## :arrow_forward: How to Run
 
 **NOTE:** This practice will deploy real resources into your AWS account. Remember to delete created resources to avoid charges on your AWS account.
 
@@ -198,7 +198,7 @@ The infrastructure consists of the following key components:
      terraform destroy
      ```
 
-## 🚀 Looking Ahead
+## :rocket: Looking Ahead
 
 This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.\
 You can extend this by adding variables, outputs, and more complex resources in future practices.
