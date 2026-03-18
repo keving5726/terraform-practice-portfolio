@@ -4,22 +4,25 @@
 
 # Terraform Practice: AWS EC2 Instance
 
-## Objective
+## :dart: Objective
+
 This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a simple EC2 instance. It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
 
-## Infrastructure Overview
+## :building_construction: Infrastructure Overview
+
 In this project, Terraform is used to create a single AWS EC2 instance with the following characteristics:
+
 - Amazon Linux 2023 AMI 2023.10.20260120.4 arm64 HVM kernel-6.12.
 - **t4g.micro** instance type (eligible for AWS free tier).
 - Default VPC and subnet.
 
-### Architecture Diagram
+## :world_map: Architecture Diagram
 
 <div align="center">
   <img width="721" height="231" alt="basic-ec2 drawio" src="https://github.com/user-attachments/assets/a80dc0db-abc9-4d3d-86a8-926ff8129578" />
 </div>
 
-### Flowchart
+## :twisted_rightwards_arrows: Flowchart
 
 <div align="center">  
   <img width="549" height="181" alt="basic-ec2-flow drawio" src="https://github.com/user-attachments/assets/7a3eb31a-0722-4878-a4bd-f8a6c80d7c4e" />
@@ -30,7 +33,7 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 3. Deploy the EC2 instance with `terraform apply`.
 4. Clean up with `terraform destroy`.
 
-### Terraform Dependency Graph
+## :deciduous_tree: Terraform Dependency Graph
 
 <div align="center">
   <img width="815" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/1b685485-a6de-4049-bd05-d3d12d18a7f8" />  
@@ -38,7 +41,7 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 
 The goal is to get familiar with Terraform configuration files, providers, resources, and basic commands.
 
-## How to Run
+## :arrow_forward: How to Run
 
 **NOTE:** This example will deploy real resources into your AWS account.
 Remember to delete created resources to avoid charges on your AWS account.
@@ -71,5 +74,7 @@ Clean up when you're done:
 terraform destroy
 ```
 
-This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+## :rocket: Looking Ahead
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.\
 You can extend this by adding variables, outputs, and more complex resources in future practices.
