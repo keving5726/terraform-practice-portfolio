@@ -4,6 +4,8 @@
 
 # Terraform Practice: S3 Backend with DynamoDB
 
+**Note**: This practice using DynamoDB for state locking is intended **only for testing or legacy purposes**. The DynamoDB locking mechanism is now **deprecated** in favor of the **native S3 locking feature**, which provides a simpler and more efficient way to manage Terraform state locks directly within S3. It is recommended to migrate to native S3 locking for production environments to benefit from improved reliability and reduced operational overhead. If you want to check out a practice that uses the native S3 locking feature, click on the following link: [s3backend](../s3backend).
+
 ## :dart: Objective
 
 The objective of this practice is to:
