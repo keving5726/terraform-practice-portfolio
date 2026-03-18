@@ -24,8 +24,8 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 
 ## :twisted_rightwards_arrows: Flowchart
 
-<div align="center">  
-  <img width="549" height="181" alt="basic-ec2-flow drawio" src="https://github.com/user-attachments/assets/7a3eb31a-0722-4878-a4bd-f8a6c80d7c4e" />
+<div align="center">
+  <img width="549" height="181" alt="basic-ec2-flow drawio" src="https://github.com/user-attachments/assets/08576754-0291-42e7-a9ef-73c23dac7a2d" />
 </div>
 
 1. Write Terraform configuration files.
