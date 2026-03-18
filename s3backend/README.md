@@ -49,7 +49,7 @@ The infrastructure consists of the following key components:
   <img width="641" height="551" alt="s3backend-workspaces drawio" src="https://github.com/user-attachments/assets/4b0748bb-27a8-447b-b6e9-1530093eb355" />
 </div>
 
-## Terraform Dependency Graph
+## :deciduous_tree: Terraform Dependency Graph
 
 <div align="center">
   <img width="411" height="381" alt="s3backend-dependencies drawio" src="https://github.com/user-attachments/assets/90214943-8c4f-4eac-9638-7bdf0a2d78a2" />
