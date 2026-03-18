@@ -19,7 +19,7 @@ In this project, Terraform is used to create a single AWS EC2 instance with the 
 ## :world_map: Architecture Diagram
 
 <div align="center">
-  <img width="721" height="231" alt="basic-ec2 drawio" src="https://github.com/user-attachments/assets/a80dc0db-abc9-4d3d-86a8-926ff8129578" />
+  <img width="891" height="321" alt="basic-ec2 drawio" src="https://github.com/user-attachments/assets/b4291472-bb00-4ab9-90a0-e947d6b993ea" />
 </div>
 
 ## :twisted_rightwards_arrows: Flowchart
