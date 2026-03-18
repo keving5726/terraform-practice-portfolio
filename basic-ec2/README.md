@@ -6,15 +6,17 @@
 
 ## :dart: Objective
 
-This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a simple EC2 instance. It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
+This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a simple EC2 instance.\
+It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
 
 ## :building_construction: Infrastructure Overview
 
-In this project, Terraform is used to create a single AWS EC2 instance with the following characteristics:
+The infrastructure consists of the following key components:
 
-- Amazon Linux 2023 AMI 2023.10.20260120.4 arm64 HVM kernel-6.12.
-- **t4g.micro** instance type (eligible for AWS free tier).
-- Default VPC and subnet.
+- 1 EC2 instance:
+  - **AMI**: Amazon Linux 2023 kernel-6.12 AMI.
+  - **Instance type**: t4g.micro (eligible for AWS free tier).
+  - **Architecture**: arm64.
 
 ## :world_map: Architecture Diagram
 
