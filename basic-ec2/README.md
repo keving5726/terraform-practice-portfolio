@@ -54,25 +54,25 @@ Remember to delete created resources to avoid charges on your AWS account.
 
 ### Steps
 
-Initialize Terraform (downloads provider plugins):
-```bash
-terraform init
-```
+1. Initialize Terraform (downloads provider plugins):
+   ```bash
+   terraform init
+   ```
 
-Preview the infrastructure changes Terraform will apply:
-```bash
-terraform plan
-```
+2. Preview the infrastructure changes Terraform will apply:
+   ```bash
+   terraform plan
+   ```
 
-Apply the configuration to create the EC2 instance:
-```bash
-terraform apply
-```
+3. Apply the configuration to create the EC2 instance:
+   ```bash
+   terraform apply
+   ```
 
-Clean up when you're done:
-```bash
-terraform destroy
-```
+4. Clean up when you're done:
+   ```bash
+   terraform destroy
+   ```
 
 ## :rocket: Looking Ahead
 
