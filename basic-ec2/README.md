@@ -41,8 +41,6 @@ The infrastructure consists of the following key components:
   <img width="815" height="539" alt="graphviz" src="https://github.com/user-attachments/assets/1b685485-a6de-4049-bd05-d3d12d18a7f8" />  
 </div>
 
-The goal is to get familiar with Terraform configuration files, providers, resources, and basic commands.
-
 ## :arrow_forward: How to Run
 
 **NOTE:** This example will deploy real resources into your AWS account.
