@@ -18,27 +18,33 @@ This practice aims to demonstrate proficiency in Infrastructure as Code (IaC) by
 The practice will incorporate the use of official AWS Terraform modules as well as external community modules to learn how to effectively integrate and manage reusable modules. Additionally, it will include the use of nested modules to enhance code modularity, promote better organization, and improve maintainability across complex infrastructure deployments.
 
 ## Infrastructure Overview
-In this project, Terraform is used to create a multi-tiered web application in AWS with the following characteristics:
+
+The infrastructure consists of the following key components:
+
 - Networking Module:
-    - 1 VPC.
-    - 1 route table.
-    - 1 Internet gateway.
-    - 1 NAT gateway.
-    - 3 public subnets for the Application Load Balancer.
-    - 3 private subnets for the EC2 instances.
-    - 3 private subnets for the RDS instances.
-    - 3 security groups (ALB, Web Server and Database).
+  - 1 VPC.
+  - 1 route table.
+  - 1 Internet gateway.
+  - 1 NAT gateway.
+  - 3 public subnets for the Application Load Balancer.
+  - 3 private subnets for the EC2 instances.
+  - 3 private subnets for the RDS instances.
+  - 3 security groups (ALB, Web Server and Database).
+
 - Database Module:
-    - Engine version: MySQL **8.4.7**.
-    - Instance type: **db.t4g.micro** (eligible for AWS free tier).
+  - 1 RDS instance:
+    - **Instance type**: db.t4g.micro (eligible for AWS free tier).
+    - **Engine version**: MySQL 8.4.7.
     - Single-AZ DB instance deployment (1 instance).
+
 - Autoscaling Module:
-    - Launch template:
-        - AMI: Ubuntu Server 24.04 LTS (HVM), amd64 noble image.
-        - Instance type: **t3.micro** (eligible for AWS free tier).
-        - User data: Cloud-init configuration.
-    - Application Load Balancer (ALB).
-    - Auto Scaling Group (ASG).
+  - Launch template:
+    - **AMI**: Ubuntu Server 24.04 LTS (HVM), SSD Volume Type.
+    - **Instance type**: t3.micro (eligible for AWS free tier).
+    - **Architecture**: 64-bit (x86).
+    - **User data**: Cloud-init configuration.
+  - 1 Application Load Balancer (ALB).
+  - 1 Auto Scaling Group (ASG).
 
 ### Architecture Diagram
 
