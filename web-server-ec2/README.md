@@ -6,10 +6,9 @@
 
 ## :dart: Objective
 
-This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a web server using an EC2 instance.\
-It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
+This practice aims to demonstrate the basics of using Terraform to provision infrastructure on AWS by creating a web server using an EC2 instance. It is designed as a starting point for learning Infrastructure as Code (IaC) with Terraform.
 
-## :building_construction Infrastructure Overview
+## :building_construction: Infrastructure Overview
 
 The infrastructure consists of the following key components:
 
