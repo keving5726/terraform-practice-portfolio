@@ -21,7 +21,7 @@ In this project, Terraform is used to create a web server cluster with the follo
 ### Architecture Diagram
 
 <div align="center">
-  <img width="637" height="681" alt="web-server-cluster drawio" src="https://github.com/user-attachments/assets/34a07ff3-1f04-4895-9774-30d77ff85a84" />
+  <img width="711" height="721" alt="web-server-cluster drawio" src="https://github.com/user-attachments/assets/a525efcb-95fc-458f-8617-a4ac45943ac2" />
 </div>
 
 ### Terraform Dependency Graph
