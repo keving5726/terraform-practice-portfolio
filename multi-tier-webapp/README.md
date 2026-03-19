@@ -4,7 +4,7 @@
 
 # Terraform Practice: Multi Tier Web Application in AWS
 
-## Objective
+## :dart: Objective
 
 To design and deploy a highly available, scalable multi-tiered web application in AWS using Terraform.
 Multi-tier simply refers to a software system that is divided into logical layers, like a cake, for example:
@@ -17,7 +17,7 @@ This practice aims to demonstrate proficiency in Infrastructure as Code (IaC) by
 
 The practice will incorporate the use of official AWS Terraform modules as well as external community modules to learn how to effectively integrate and manage reusable modules. Additionally, it will include the use of nested modules to enhance code modularity, promote better organization, and improve maintainability across complex infrastructure deployments.
 
-## Infrastructure Overview
+## :building_construction: Infrastructure Overview
 
 The infrastructure consists of the following key components:
 
@@ -46,19 +46,19 @@ The infrastructure consists of the following key components:
   - 1 Application Load Balancer (ALB).
   - 1 Auto Scaling Group (ASG).
 
-### Architecture Diagram
+## :world_map: Architecture Diagram
 
 <div align="center">
   <img width="1052" height="821" alt="Multi-tiered-web-app drawio" src="https://github.com/user-attachments/assets/f81fb293-5506-476c-b01e-7031d5710cdf" />
 </div>
 
-### Terraform Dependency Graph
+## :deciduous_tree: Terraform Dependency Graph
 
 <div align="center">
   <img width="711" height="241" alt="multi-tiered-web-app-dependencies drawio" src="https://github.com/user-attachments/assets/861e0dd7-0a4a-4fe4-bba7-bed3c4a1d3c0" />
 </div>
 
-## How to Run
+## :arrow_forward: How to Run
 
 **NOTE:** This practice will deploy real resources into your AWS account.
 Remember to delete created resources to avoid charges on your AWS account.
@@ -111,5 +111,7 @@ Clean up when you're done:
 terraform destroy
 ```
 
-This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+## :rocket: Looking Ahead
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.\
 You can extend this by adding variables, outputs, and more complex resources in future practices.
