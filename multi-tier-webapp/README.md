@@ -55,7 +55,7 @@ The infrastructure consists of the following key components:
 ### Terraform Dependency Graph
 
 <div align="center">
-  <img width="711" height="241" alt="Multi-tiered-web-app-dependencies drawio" src="https://github.com/user-attachments/assets/4798cf74-e4f1-41bb-9d05-72d28d3dde3d" />
+  <img width="711" height="241" alt="multi-tiered-web-app-dependencies drawio" src="https://github.com/user-attachments/assets/861e0dd7-0a4a-4fe4-bba7-bed3c4a1d3c0" />
 </div>
 
 ## How to Run
