@@ -4,13 +4,15 @@
 
 # Terraform Practice: Web Server Cluster using AWS
 
-## Objective
+## :dart: Objective
+
 Automate the provisioning and management of a scalable and highly available infrastructure on AWS to host a web server cluster.
 Using Terraform, the project deploys EC2 instances managed by Auto Scaling Groups (ASG) to ensure dynamic scalability, alongside an Application Load Balancer (ALB) that efficiently distributes traffic and enhances service availability.
 
 This practice aims to enable Infrastructure as Code (IaC) using Terraform, allowing reproducible deployments, version control, and simplified maintenance of the web architecture on AWS.
 
-## Infrastructure Overview
+## :building_construction: Infrastructure Overview
+
 In this project, Terraform is used to create a web server cluster with the following characteristics:
 - Ubuntu Server 24.04 LTS (HVM), arm64 noble image.
 - **t4g.micro** instance type (eligible for AWS free tier).
@@ -18,13 +20,13 @@ In this project, Terraform is used to create a web server cluster with the follo
 - Application Load Balancing (ALB).
 - Auto Scaling Group (ASG).
 
-### Architecture Diagram
+## :world_map: Architecture Diagram
 
 <div align="center">
   <img width="711" height="721" alt="web-server-cluster drawio" src="https://github.com/user-attachments/assets/a525efcb-95fc-458f-8617-a4ac45943ac2" />
 </div>
 
-### Terraform Dependency Graph
+## :deciduous_tree: Terraform Dependency Graph
 
 <div align="center">
   <img width="2265" height="1019" alt="graphviz" src="https://github.com/user-attachments/assets/d0df6496-7fc8-4dbe-b0d9-0c0e46d22571" />
@@ -32,7 +34,7 @@ In this project, Terraform is used to create a web server cluster with the follo
 
 The goal is to get familiar with Terraform configuration files, providers, resources, and basic commands.
 
-## How to Run
+## :arrow_forward: How to Run
 
 **NOTE:** This example will deploy real resources into your AWS account.
 Remember to delete created resources to avoid charges on your AWS account.
@@ -84,5 +86,7 @@ Clean up when you're done:
 terraform destroy
 ```
 
-This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.
+## :rocket: Looking Ahead
+
+This practice is a foundational step to understand Terraform workflow and AWS resource provisioning.\
 You can extend this by adding variables, outputs, and more complex resources in future practices.
