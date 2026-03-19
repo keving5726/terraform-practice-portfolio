@@ -16,7 +16,7 @@ The infrastructure consists of the following key components:
 - 1 EC2 instance:
   - **AMI**: Amazon Linux 2023 kernel-6.12 AMI.
   - **Instance type**: t4g.micro (eligible for AWS free tier).
-  - **Architecture**: arm64.
+  - **Architecture**: 64-bit (Arm).
 
 ## :world_map: Architecture Diagram
 
