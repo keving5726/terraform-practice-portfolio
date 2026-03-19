@@ -38,7 +38,7 @@ The infrastructure consists of the following key components:
     - Single-AZ DB instance deployment (1 instance).
 
 - Autoscaling Module:
-  - Launch template:
+  - 1 Launch template:
     - **AMI**: Ubuntu Server 24.04 LTS (HVM), SSD Volume Type.
     - **Instance type**: t3.micro (eligible for AWS free tier).
     - **Architecture**: 64-bit (x86).
