@@ -1,2 +1,5 @@
 # Partial configuration for the S3 backend
 *.config
+
+# But do not ignore the environments folder and its contents
+!environments/**
