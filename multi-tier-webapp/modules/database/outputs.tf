@@ -1,4 +1,5 @@
 output "db_config" {
+  description = "Connection details for the database configuration"
   value = {
     hostname = aws_db_instance.database.address
     port     = aws_db_instance.database.port

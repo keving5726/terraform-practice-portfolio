@@ -1,5 +1,6 @@
 variable "namespace" {
-  type = string
+  description = "The project namespace to use for unique resource naming"
+  type        = string
 }
 
 variable "private_subnets" {
@@ -45,6 +46,7 @@ variable "private_network_cidr" {
 }
 
 variable "default_egress_rule" {
+  description = "Default egress rule allowing all outbound IPv4 traffic on all ports and protocols"
   type = list(object({
     from_port   = number
     to_port     = number

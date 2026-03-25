@@ -1,16 +1,20 @@
 variable "namespace" {
-  type = string
+  description = "The project namespace to use for unique resource naming"
+  type        = string
 }
 
 variable "vpc" {
-  type = any
+  description = "Reference to the VPC module outputs"
+  type        = any
 }
 
 variable "sg" {
-  type = any
+  description = "Security group IDs for the Application Load Balancer, web server, and database"
+  type        = any
 }
 
 variable "db_config" {
+  description = "Connection details for the database configuration"
   type = object({
     hostname = string
     port     = number
