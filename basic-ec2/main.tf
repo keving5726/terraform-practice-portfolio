@@ -39,8 +39,8 @@ data "aws_ami" "amazon_linux" {
 }
 
 resource "aws_instance" "basic_ec2" {
-  ami               = data.aws_ami.amazon_linux.id
-  instance_type     = var.instance_type
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = var.instance_type
 
   tags = {
     Name = "Basic EC2"
